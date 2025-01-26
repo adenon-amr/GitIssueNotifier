@@ -3,7 +3,6 @@ name: GitIssueNotifier
 on:
   schedule:
     - cron: "*/60 * * * *"
-  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   notify:
