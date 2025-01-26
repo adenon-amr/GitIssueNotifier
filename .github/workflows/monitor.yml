@@ -16,7 +16,10 @@ jobs:
 
       - name: Install dependencies
         run: pip install requests
-
+        
+      - name: List repository files
+        run: ls -R
+        
       - name: Run the script
         env:
           EMAIL: ${{ secrets.EMAIL }}
@@ -24,5 +27,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 main.py
         
-      - name: List repository files
-        run: ls -R
+
