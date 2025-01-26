@@ -3,7 +3,8 @@ name: GitIssueNotifier
 on:
   schedule:
     - cron: "*/30 * * * *"  # Runs every 30 minutes
-
+  workflow_dispatch:
+  
 jobs:
   notify:
     runs-on: ubuntu-latest
