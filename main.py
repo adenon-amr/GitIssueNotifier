@@ -10,7 +10,7 @@ PASSWORD = os.environ["PASSWORD"]
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
-GITHUB_TOKEN = os.environ["TOKEN"]
+TOKEN = os.environ["TOKEN"]
 REPOSITORIES = [
     "adithya-menon-r/test",
     "CSE-25/quick_start_express"
@@ -21,7 +21,7 @@ last_run_time = time.time() - 3600  # Defaults to one hour ago for the first run
 
 def get_new_issues():
     global last_run_time
-    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    headers = {"Authorization": f"token {TOKEN}"}
     new_issues = []
     current_time = time.time()
 
