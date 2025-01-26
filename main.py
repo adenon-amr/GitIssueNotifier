@@ -17,7 +17,7 @@ REPOSITORIES = [
 ]
 
 # Track the last time the script ran
-last_run_time = time.time() - 3600  # Defaults to one hour ago for the first run
+last_run_time = time.time() - 1800  # Defaults to one hour ago for the first run
 
 def get_new_issues():
     global last_run_time
