@@ -10,7 +10,7 @@ PASSWORD = os.environ["PASSWORD"]
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
-GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
+GITHUB_TOKEN = os.environ["TOKEN"]
 REPOSITORIES = [
     "adithya-menon-r/test",
     "CSE-25/quick_start_express"
