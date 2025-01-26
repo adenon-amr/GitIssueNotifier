@@ -1,0 +1,24 @@
+name: GitIssueNotifier
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # Runs every 30 minutes
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run the script
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python script.py
