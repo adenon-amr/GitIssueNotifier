@@ -56,16 +56,12 @@ def send_email(subject, body):
         print(f"Error sending email: {e}")
 
 def main():
-    print("Monitoring GitHub repositories for new issues...")
-    while True:
-        new_issues = get_new_issues()
-        for issue in new_issues:
-            subject = f"New Issue in {issue['repository_url'].split('/')[-1]}: {issue['title']}"
-            body = f"{issue['title']}\n\n{issue['body']}\n\nURL: {issue['html_url']}"
-            send_email(subject, body)
-        
-        # Wait for 30 minutes before checking again
-        time.sleep(1800)
+    print("Checking GitHub repositories for new issues...")
+    new_issues = get_new_issues()
+    for issue in new_issues:
+        subject = f"New Issue in {issue['repository_url'].split('/')[-1]}: {issue['title']}"
+        body = f"{issue['title']}\n\n{issue['body']}\n\nURL: {issue['html_url']}"
+        send_email(subject, body)
 
 if __name__ == "__main__":
     main()
