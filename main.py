@@ -13,7 +13,26 @@ SMTP_PORT = 587
 TOKEN = os.environ["TOKEN"]
 REPOSITORIES = [
     "adithya-menon-r/test",
-    "CSE-25/quick_start_express"
+    "TharunKumarrA/FC-TeamForge,
+    "Thanus-Kumaar/FC-TeamForge-server",
+    "IAmRiteshKoushik/woc-leaderboard",
+    "TharunKumarrA/Molecule-Visualiser",
+    "CSE-25/amrita_pyq",
+    "CSE-25/quick_start_express",
+    "Abhinav-ark/Amrita_map",
+    "FirefoxSRV/Match-da-pairs",
+    "Ashrockzzz2003/google_maps_kotlin_android",
+    "Ashrockzzz2003/placement_tracker_web",
+    "Ashrockzzz2003/placement_tracker_server",
+    "Ashrockzzz2003/Data_Structures_and_Algorithms",
+    "IAmRiteshKoushik/bluedis",
+    "Abhinav-ark/timetable_csea",
+    "amri-tah/burntbrotta.github.io",
+    "amri-tah/LeetPath",
+    "amri-tah/BurntBrotta-Flutter",
+    "SaranDharshanSP/AmritaGPT",
+    "SaranDharshanSP/NeuroScribe",
+    "SaranDharshanSP/TN-Tourism.github.io"
 ]
 
 # Track the last time the script ran
