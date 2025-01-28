@@ -12,7 +12,6 @@ SMTP_PORT = 587
 
 TOKEN = os.environ["TOKEN"]
 REPOSITORIES = [
-    "adithya-menon-r/test",
     "TharunKumarrA/FC-TeamForge",
     "Thanus-Kumaar/FC-TeamForge-server",
     "IAmRiteshKoushik/woc-leaderboard",
