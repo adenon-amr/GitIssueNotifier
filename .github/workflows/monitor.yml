@@ -1,8 +1,8 @@
 name: GitIssueNotifier
 
-on:
-  schedule:
-    - cron: "*/60 * * * *"
+# on:
+#   schedule:
+#     - cron: "*/60 * * * *"
 
 jobs:
   notify:
