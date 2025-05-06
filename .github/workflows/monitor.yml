@@ -2,8 +2,8 @@ name: GitHub Issue Notifier
 
 on:
   schedule:
-    - cron: "0 * * * *"  # Runs every hour on the hour (UTC)
-  workflow_dispatch:      # Optional: allows manual trigger
+    - cron: "0 * * * *"
+  workflow_dispatch:
 
 jobs:
   notify:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # Needed to push
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -21,9 +23,17 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run the issue checker
+      - name: Run the notifier
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           TOKEN: ${{ secrets.TOKEN }}
         run: python main.py
+
+      - name: Commit updated time.json
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add time.json
+          git commit -m "Update time.json" || echo "No changes to commit"
+          git push
