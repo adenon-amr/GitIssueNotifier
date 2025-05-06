@@ -34,6 +34,6 @@ jobs:
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          git add time.json
-          git commit -m "Update time.json" || echo "No changes to commit"
+          git add last_checked.json
+          git commit -m "Update last_checked.json" || echo "No changes to commit"
           git push
