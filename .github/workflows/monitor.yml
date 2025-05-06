@@ -1,15 +1,17 @@
-name: GitIssueNotifier
+name: GitHub Issue Notifier
 
-# on:
-#   schedule:
-#     - cron: "*/60 * * * *"
+on:
+  schedule:
+    - cron: "0 * * * *"  # Runs every hour on the hour (UTC)
+  workflow_dispatch:      # Optional: allows manual trigger
 
 jobs:
   notify:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4  # Ensures the repository is cloned
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -19,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run the script
+      - name: Run the issue checker
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
