@@ -14,7 +14,7 @@ def send_email(issue):
     body_html = markdown.markdown(raw_body)
     url = issue["html_url"]
 
-    gemini_insights = analyze_github_issue(issue, api_key="GEMINI_API_KEY")
+    gemini_insights = analyze_github_issue(issue)
     
     gemini_section_html = f"""
     <h2>Gemini Insights</h2>
