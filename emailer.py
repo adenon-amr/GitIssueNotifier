@@ -13,6 +13,12 @@ def send_email(issue):
     body_html = markdown.markdown(raw_body)
     url = issue["html_url"]
 
+    body_html = re.sub(
+        r'<img(.*?)>',
+        r'<img\1 style="max-width:100%; height:auto; display:block; margin:0 auto;">',
+        body_html
+    )
+
     html_body = f"""
     <html>
     <body style="margin: 0; padding: 0; background-color: #f4f4f7; font-family: 'Segoe UI', sans-serif;">
@@ -35,12 +41,6 @@ def send_email(issue):
     </body>
     </html>
     """
-
-    body_html = re.sub(
-        r'<img(.*?)>',
-        r'<img\1 style="max-width:100%; height:auto; display:block; margin:0 auto;">',
-        body_html
-    )
 
     msg = MIMEMultipart("alternative")
     msg["From"] = EMAIL
