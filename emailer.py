@@ -22,7 +22,7 @@ def send_new_issue_email(issue):
     html_body = f"""
     <html>
     <body style="margin: 0; padding: 0; background-color: #f4f4f7; font-family: 'Segoe UI', sans-serif;">
-        <div style="padding: 40px 20px;">
+        <div style="padding: 40px 0px;">
             <div style="max-width: 750px; margin: 0 auto; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
                 <div style="background-color: #24292e; padding: 24px; text-align: center;">
                     <h1 style="color: white; margin: 0 auto; font-size: 22px; display: inline-block;">{title}</h1>
@@ -63,7 +63,7 @@ def send_new_issue_email(issue):
                 <div style="padding: 16px; text-align: center; background-color: #e1e4e8; font-size: 12px; color: #6a737d;">
                     Powered by 
                     <a href="https://github.com/adithya-menon-r/GitSignal" style="text-decoration: underline; color: inherit; font-weight: inherit;">
-                        GitSignal
+                        <strong>GitSignal</strong>
                     </a>
                 </div>
             </div>
