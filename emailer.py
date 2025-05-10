@@ -32,6 +32,12 @@ def send_email(issue):
             </div>
         </div>
     </body>
+    <style>
+        img {{
+            max-width: 100% !important;
+            height: auto !important;
+        }}
+    </style>
     </html>
     """
 
