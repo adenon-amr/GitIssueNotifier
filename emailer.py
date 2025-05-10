@@ -47,7 +47,6 @@ def send_email(issue):
     msg["To"] = EMAIL
     msg["Subject"] = subject
     msg.attach(MIMEText(html_body, "html"))
-    print(html_body)
 
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
