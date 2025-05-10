@@ -4,56 +4,14 @@ import markdown
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from config import EMAIL, PASSWORD, SMTP_SERVER, SMTP_PORT
-from gemini import analyze_github_issue
 
-def send_email(issue):
+def send_new_issue_email(issue):
     repo_name = issue["repository_url"].split("/")[-1]
     subject = f"New Issue in {repo_name}: {issue['title']}"
     title = issue["title"]
     raw_body = issue["body"] or "No description provided."
     body_html = markdown.markdown(raw_body)
     url = issue["html_url"]
-
-    gemini_insights = analyze_github_issue(issue)
-    
-    gemini_section_html = f"""
-    <h2>Gemini Insights</h2>
-    <ul>
-        <li><strong>Difficulty Level</strong>: {gemini_insights['difficulty_level']} ({gemini_insights['difficulty_number']})</li>
-        <li><strong>Estimated Hours</strong>: {gemini_insights['estimated_hours']} hours</li>
-        <li><strong>Explanation</strong>: {gemini_insights['explanation']}</li>
-        <li><strong>Learning Resources</strong>: 
-            <ul>
-                {''.join([f"<li><a href='{url}'>{url}</a></li>" for url in gemini_insights['resources']])}
-            </ul>
-        </li>
-    </ul>
-    """
-
-    gemini_section_html = f"""
-    <style>
-        h2 {{
-            font-size: 18px;
-            margin-top: 10px;
-            margin-bottom: 15px;
-        }}
-        ul {{
-            font-size: 14px;
-            color: #555555;
-            list-style-type: none;
-            padding-left: 20px;
-        }}
-        li {{
-            margin-bottom: 10px;
-        }}
-        a {{
-            color: #2ea44f;
-        }}
-    </style>
-    {gemini_section_html}
-    """
-
-    body_html += gemini_section_html
 
     body_html = re.sub(
         r'<img(.*?)>',
@@ -64,7 +22,7 @@ def send_email(issue):
     html_body = f"""
     <html>
     <body style="margin: 0; padding: 0; background-color: #f4f4f7; font-family: 'Segoe UI', sans-serif;">
-        <div style="max-width: 750px; margin: 40px auto; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+        <div style="max-width: 750px; margin: 80px auto 40px; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
             <div style="background-color: #24292e; padding: 24px; text-align: center;">
                 <h1 style="color: white; margin: 0 auto; font-size: 22px; display: inline-block;">{title}</h1>
             </div>
@@ -101,8 +59,11 @@ def send_email(issue):
                     </a>
                 </div>
             </div>
-            <div style="padding: 16px; text-align: center; background-color: #f9f9f9; font-size: 12px; color: #888888;">
-                Powered by <strong>GitSignal</strong>
+            <div style="padding: 16px; text-align: center; background-color: #e1e4e8; font-size: 12px; color: #6a737d;">
+                Powered by 
+                <a href="https://github.com/adithya-menon-r/GitSignal" style="text-decoration: underline; color: inherit; font-weight: inherit;">
+                    GitSignal
+                </a>
             </div>
         </div>
     </body>
