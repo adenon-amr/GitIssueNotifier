@@ -27,25 +27,25 @@ def send_email(issue):
                 <h1 style="color: white; margin: 0 auto; font-size: 22px; display: inline-block;">{title}</h1>
             </div>
             <div style="padding: 32px; text-align: center;">
-                <div style="font-size: 12px; color: #555555; text-align: left; line-height: 1.5;">
+                <div style="font-size: 14px; color: #555555; text-align: left; line-height: 1.5;">
                     <style>
                         h1 {{
-                            font-size: 16px;
+                            font-size: 18px;
                             margin-top: 0;
                             margin-bottom: 10px;
                         }}
                         h2 {{
-                            font-size: 14px;
+                            font-size: 16px;
                             margin-top: 0;
                             margin-bottom: 8px;
                         }}
                         h3 {{
-                            font-size: 12px;
+                            font-size: 14px;
                             margin-top: 0;
                             margin-bottom: 6px;
                         }}
                         p {{
-                            font-size: 12px;
+                            font-size: 14px;
                             line-height: 1.5;
                             color: #555555;
                             margin-bottom: 15px;
