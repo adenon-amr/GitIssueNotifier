@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from utils import get_last_checked, save_last_checked, load_repos
 from github_checker import get_new_issues
-from emailer import send_email
+from emailer import send_new_issue_email
 
 def main():
     print("Checking for new issues in tracked repos...")
@@ -13,7 +13,7 @@ def main():
 
     success = True
     for issue in new_issues:
-        if not send_email(issue):
+        if not send_new_issue_email(issue):
             success = False
 
     if success:
