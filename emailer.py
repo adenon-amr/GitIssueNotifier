@@ -15,7 +15,7 @@ def send_email(issue):
 
     body_html = re.sub(
         r'<img(.*?)>',
-        r'<img\1 style="max-width:100%; height:auto; display:block; margin:0 auto;">',
+        r'<img\1 style="max-width:100%; height:auto; display:block; margin:0 auto; margin-bottom:5px;">',
         body_html
     )
 
@@ -27,7 +27,32 @@ def send_email(issue):
                 <h1 style="color: white; margin: 0 auto; font-size: 22px; display: inline-block;">{title}</h1>
             </div>
             <div style="padding: 32px; text-align: center;">
-                <div style="font-size: 16px; color: #555555; text-align: left; line-height: 1.5;">{body_html}</div>
+                <div style="font-size: 14px; color: #555555; text-align: left; line-height: 1.5;">
+                    <style>
+                        h1 {{
+                            font-size: 18px;
+                            margin-top: 0;
+                            margin-bottom: 10px;
+                        }}
+                        h2 {{
+                            font-size: 16px;
+                            margin-top: 0;
+                            margin-bottom: 8px;
+                        }}
+                        h3 {{
+                            font-size: 14px;
+                            margin-top: 0;
+                            margin-bottom: 6px;
+                        }}
+                        p {{
+                            font-size: 14px;
+                            line-height: 1.5;
+                            color: #555555;
+                            margin-bottom: 15px;
+                        }}
+                    </style>
+                    {body_html}
+                </div>
                 <div style="margin-top: 30px;">
                     <a href="{url}" style="background-color: #2ea44f; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
                         View Issue on GitHub
