@@ -1,4 +1,4 @@
-name: GitHub Issue Notifier
+name: GitSignal
 
 on:
   schedule:
@@ -23,12 +23,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run the notifier
+      - name: Run GitSignal
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          TOKEN: ${{ secrets.TOKEN }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
         run: python main.py
 
       - name: Commit updated last_checked.json
