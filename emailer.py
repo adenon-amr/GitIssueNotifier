@@ -17,10 +17,9 @@ def send_email(issue):
     <body style="margin: 0; padding: 0; background-color: #f4f4f7; font-family: 'Segoe UI', sans-serif;">
         <div style="max-width: 600px; margin: 40px auto; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
             <div style="background-color: #24292e; padding: 16px;">
-                <h2 style="color: white; margin: 0;">{repo_name}</h2>
+                <h1 style="color: white; margin: 0; font-size: 22px;">{title}</h1>
             </div>
             <div style="padding: 32px; text-align: center;">
-                <h1 style="font-size: 24px; color: #333333;">{title}</h1>
                 <div style="font-size: 16px; color: #555555; text-align: left; line-height: 1.5;">{body_html}</div>
                 <div style="margin-top: 30px;">
                     <a href="{url}" style="background-color: #2ea44f; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
