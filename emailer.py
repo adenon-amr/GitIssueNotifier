@@ -21,7 +21,7 @@ def send_email(issue):
             </div>
             <div style="padding: 32px; text-align: center;">
                 <h1 style="font-size: 24px; color: #333333;">{title}</h1>
-                <p style="font-size: 16px; color: #555555; text-align: left; line-height: 1.5; white-space: pre-wrap;">{body_text}</p>
+                <div style="font-size: 16px; color: #555555; text-align: left; line-height: 1.5;">{body_html}</div>
                 <div style="margin-top: 30px;">
                     <a href="{url}" style="background-color: #2ea44f; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
                         View Issue on GitHub
