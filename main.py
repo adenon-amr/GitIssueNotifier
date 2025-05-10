@@ -47,12 +47,36 @@ def get_new_issues(since, repos):
                     new_issues.append(issue)
     return new_issues
 
-def send_email(subject, body):
-    msg = MIMEMultipart()
+def send_email(subject, issue):
+    title = issue["title"]
+    body_text = issue["body"] or "No description provided."
+    url = issue["html_url"]
+
+    html_body = f"""
+    <html>
+    <body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
+        <h1 style="font-size: 24px; font-weight: bold;">{title}</h1>
+        <div style="text-align: left; max-width: 600px; margin: 20px auto; font-size: 16px; line-height: 1.5; white-space: pre-wrap;">
+            {body_text}
+        </div>
+        <div style="margin-top: 30px;">
+            <a href="{url}" style="font-size: 14px; color: #0366d6;">View Issue on GitHub</a>
+        </div>
+        <div style="margin-top: 40px; font-size: 12px; color: #888;">
+            Powered by <strong>GitSignal</strong>
+        </div>
+    </body>
+    </html>
+    """
+
+    msg = MIMEMultipart("alternative")
     msg["From"] = EMAIL
     msg["To"] = EMAIL
     msg["Subject"] = subject
-    msg.attach(MIMEText(body, "plain"))
+
+    part = MIMEText(html_body, "html")
+    msg.attach(part)
+
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
@@ -75,8 +99,7 @@ def main():
     success = True
     for issue in new_issues:
         subject = f"[{issue['repository_url'].split('/')[-1]}] {issue['title']}"
-        body = f"{issue['title']}\n\n{issue['body']}\n\n{issue['html_url']}"
-        if not send_email(subject, body):
+        if not send_email(subject, issue):
             success = False
 
     if success:
