@@ -36,6 +36,8 @@ def send_email(issue):
         img {{
             max-width: 100% !important;
             height: auto !important;
+            display: block;
+            margin: 0 auto;
         }}
     </style>
     </html>
@@ -46,6 +48,7 @@ def send_email(issue):
     msg["To"] = EMAIL
     msg["Subject"] = subject
     msg.attach(MIMEText(html_body, "html"))
+    print(html_body)
 
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
