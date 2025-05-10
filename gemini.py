@@ -37,5 +37,5 @@ def analyze_github_issue(issue):
         }
     )
 
-    response_data = response.parsed[0]
+    response_data = response.parsed
     return response_data.dict()
