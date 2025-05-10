@@ -2,7 +2,7 @@ import os
 
 EMAIL = os.environ["EMAIL"]
 PASSWORD = os.environ["PASSWORD"]
-GITHUB_PAT = os.environ["TOKEN"]
+GITHUB_PAT = os.environ["GITHUB_PAT"]
 
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
