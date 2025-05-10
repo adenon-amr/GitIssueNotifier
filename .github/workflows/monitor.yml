@@ -13,15 +13,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          persist-credentials: true  # Needed to push
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install -r requirements.txt
 
       - name: Run the notifier
         env:
@@ -30,10 +30,10 @@ jobs:
           TOKEN: ${{ secrets.TOKEN }}
         run: python main.py
 
-      - name: Commit updated time.json
+      - name: Commit updated last_checked.json
         run: |
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
+          git config user.name "adenon-amr"
+          git config user.email "adenon.amr@gmail.com"
           git add last_checked.json
           git commit -m "Update last_checked.json" || echo "No changes to commit"
           git push
