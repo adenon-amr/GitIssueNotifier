@@ -32,8 +32,8 @@ jobs:
 
       - name: Commit updated last_checked.json
         run: |
-          git config user.name "adenon-amr"
-          git config user.email "adenon.amr@gmail.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add last_checked.json
           git commit -m "Update last_checked.json" || echo "No changes to commit"
           git push
