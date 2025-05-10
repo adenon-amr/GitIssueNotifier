@@ -16,8 +16,8 @@ def send_email(issue):
     <html>
     <body style="margin: 0; padding: 0; background-color: #f4f4f7; font-family: 'Segoe UI', sans-serif;">
         <div style="max-width: 600px; margin: 40px auto; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
-            <div style="background-color: #24292e; padding: 16px;">
-                <h1 style="color: white; margin: 0; font-size: 22px;">{title}</h1>
+            <div style="background-color: #24292e; padding: 24px; text-align: center;">
+                <h1 style="color: white; margin: 0 auto; font-size: 22px; display: inline-block;">{title}</h1>
             </div>
             <div style="padding: 32px; text-align: center;">
                 <div style="font-size: 16px; color: #555555; text-align: left; line-height: 1.5;">{body_html}</div>
