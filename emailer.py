@@ -1,4 +1,5 @@
 import smtplib
+import markdown
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from config import EMAIL, PASSWORD, SMTP_SERVER, SMTP_PORT
@@ -7,7 +8,8 @@ def send_email(issue):
     repo_name = issue["repository_url"].split("/")[-1]
     subject = f"New Issue in {repo_name}: {issue['title']}"
     title = issue["title"]
-    body_text = issue["body"] or "No description provided."
+    raw_body = issue["body"] or "No description provided."
+    body_html = markdown.markdown(raw_body)
     url = issue["html_url"]
 
     html_body = f"""
