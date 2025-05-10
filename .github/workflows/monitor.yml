@@ -28,6 +28,7 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           TOKEN: ${{ secrets.TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python main.py
 
       - name: Commit updated last_checked.json
