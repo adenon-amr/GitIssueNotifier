@@ -22,48 +22,50 @@ def send_new_issue_email(issue):
     html_body = f"""
     <html>
     <body style="margin: 0; padding: 0; background-color: #f4f4f7; font-family: 'Segoe UI', sans-serif;">
-        <div style="max-width: 750px; margin: 40px auto; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
-            <div style="background-color: #24292e; padding: 24px; text-align: center;">
-                <h1 style="color: white; margin: 0 auto; font-size: 22px; display: inline-block;">{title}</h1>
-            </div>
-            <div style="padding: 32px; text-align: center;">
-                <div style="font-size: 14px; color: #555555; text-align: left; line-height: 1.5;">
-                    <style>
-                        h1 {{
-                            font-size: 18px;
-                            margin-top: 0;
-                            margin-bottom: 10px;
-                        }}
-                        h2 {{
-                            font-size: 16px;
-                            margin-top: 0;
-                            margin-bottom: 8px;
-                        }}
-                        h3 {{
-                            font-size: 14px;
-                            margin-top: 0;
-                            margin-bottom: 6px;
-                        }}
-                        p {{
-                            font-size: 14px;
-                            line-height: 1.5;
-                            color: #555555;
-                            margin-bottom: 15px;
-                        }}
-                    </style>
-                    {body_html}
+        <div style="padding: 40px 20px;">
+            <div style="max-width: 750px; margin: 0 auto; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+                <div style="background-color: #24292e; padding: 24px; text-align: center;">
+                    <h1 style="color: white; margin: 0 auto; font-size: 22px; display: inline-block;">{title}</h1>
                 </div>
-                <div style="margin-top: 30px;">
-                    <a href="{url}" style="background-color: #2ea44f; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
-                        View Issue on GitHub
+                <div style="padding: 32px; text-align: center;">
+                    <div style="font-size: 14px; color: #555555; text-align: left; line-height: 1.5;">
+                        <style>
+                            h1 {{
+                                font-size: 18px;
+                                margin-top: 0;
+                                margin-bottom: 10px;
+                            }}
+                            h2 {{
+                                font-size: 16px;
+                                margin-top: 0;
+                                margin-bottom: 8px;
+                            }}
+                            h3 {{
+                                font-size: 14px;
+                                margin-top: 0;
+                                margin-bottom: 6px;
+                            }}
+                            p {{
+                                font-size: 14px;
+                                line-height: 1.5;
+                                color: #555555;
+                                margin-bottom: 15px;
+                            }}
+                        </style>
+                        {body_html}
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <a href="{url}" style="background-color: #2ea44f; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
+                            View Issue on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div style="padding: 16px; text-align: center; background-color: #e1e4e8; font-size: 12px; color: #6a737d;">
+                    Powered by 
+                    <a href="https://github.com/adithya-menon-r/GitSignal" style="text-decoration: underline; color: inherit; font-weight: inherit;">
+                        GitSignal
                     </a>
                 </div>
-            </div>
-            <div style="padding: 16px; text-align: center; background-color: #e1e4e8; font-size: 12px; color: #6a737d;">
-                Powered by 
-                <a href="https://github.com/adithya-menon-r/GitSignal" style="text-decoration: underline; color: inherit; font-weight: inherit;">
-                    GitSignal
-                </a>
             </div>
         </div>
     </body>
