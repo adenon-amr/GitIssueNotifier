@@ -54,16 +54,25 @@ def send_email(subject, issue):
 
     html_body = f"""
     <html>
-    <body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
-        <h1 style="font-size: 24px; font-weight: bold;">{title}</h1>
-        <div style="text-align: left; max-width: 600px; margin: 20px auto; font-size: 16px; line-height: 1.5; white-space: pre-wrap;">
-            {body_text}
-        </div>
-        <div style="margin-top: 30px;">
-            <a href="{url}" style="font-size: 14px; color: #0366d6;">View Issue on GitHub</a>
-        </div>
-        <div style="margin-top: 40px; font-size: 12px; color: #888;">
-            Powered by <strong>GitSignal</strong>
+    <body style="margin: 0; padding: 0; background-color: #f4f4f7; font-family: 'Segoe UI', sans-serif;">
+        <div style="max-width: 600px; margin: 40px auto; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
+            <div style="background-color: #24292e; padding: 16px;">
+                <h2 style="color: white; margin: 0;">GitSignal</h2>
+            </div>
+            <div style="padding: 32px; text-align: center;">
+                <h1 style="font-size: 24px; color: #333333;">{title}</h1>
+                <p style="font-size: 16px; color: #555555; text-align: left; line-height: 1.5; white-space: pre-wrap;">
+                    {body_text}
+                </p>
+                <div style="margin-top: 30px;">
+                    <a href="{url}" style="background-color: #2ea44f; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
+                        View Issue on GitHub
+                    </a>
+                </div>
+            </div>
+            <div style="padding: 16px; text-align: center; background-color: #f9f9f9; font-size: 12px; color: #888888;">
+                Powered by <strong>GitSignal</strong>
+            </div>
         </div>
     </body>
     </html>
