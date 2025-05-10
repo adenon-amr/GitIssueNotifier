@@ -1,3 +1,4 @@
 requests
 markdown
 pydantic
+google-genai
