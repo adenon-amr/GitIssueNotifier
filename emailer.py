@@ -1,3 +1,4 @@
+import re
 import smtplib
 import markdown
 from email.mime.text import MIMEText
@@ -32,16 +33,14 @@ def send_email(issue):
             </div>
         </div>
     </body>
-    <style>
-        img {{
-            max-width: 100% !important;
-            height: auto !important;
-            display: block;
-            margin: 0 auto;
-        }}
-    </style>
     </html>
     """
+
+    body_html = re.sub(
+        r'<img(.*?)>',
+        r'<img\1 style="max-width:100%; height:auto; display:block; margin:0 auto;">',
+        body_html
+    )
 
     msg = MIMEMultipart("alternative")
     msg["From"] = EMAIL
